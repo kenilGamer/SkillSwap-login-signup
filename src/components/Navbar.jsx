@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { MdOutlineLogout } from 'react-icons/md';
 import { GoHome } from 'react-icons/go';
 import { LiaHandshake } from 'react-icons/lia';
@@ -5,8 +6,18 @@ import { IoChatbubbleEllipsesOutline } from 'react-icons/io5';
 import { FaRegUser } from 'react-icons/fa';
 import { RiSettingsLine } from 'react-icons/ri';
 import { NavLink } from 'react-router-dom';
+import { Button } from "@chakra-ui/react"
+import { auth } from '../Firebase/Firebase';
+import { useDispatch } from 'react-redux';
+import { loginUser, logoutUser } from '../features/userSlice';
+import { signOut } from 'firebase/auth';
 
 const Navbar = () => {
+    const dispatch = useDispatch
+    const handLogout = () =>{
+        dispatch(loginUser())
+        signOut(auth)
+    }
     return (
         <div className="accent-bg h-screen w-14 p-2 shadow-[0px_1px_4px_#00000070] flex flex-col items-center justify-between flex-shrink-0">
             <img src="logo.png" alt="SkillSwap" />
@@ -27,7 +38,8 @@ const Navbar = () => {
                     <RiSettingsLine className="m-[6px]" size="25px" />
                 </NavLink>
             </div>
-            <MdOutlineLogout size="30px" className="rotate-180" />
+            {/* <span>{user.email}</span> */}
+            <Button bg="#00AFF6" colorScheme="twitter" py="5px" px="5px" borderRadius="300" onClick={handLogout}>   <MdOutlineLogout size="30px" className="rotate-180" /></Button>
         </div>
     );
 };

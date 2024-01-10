@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Outlet, Route, Routes } from 'react-router-dom';
 import Home from './Pages/Home';
 import Chat from './Pages/chat/Chat';
@@ -11,7 +12,8 @@ import { setTheme, toggleTheme } from './slice/userSlice';
 import { useColorMode } from '@chakra-ui/react';
 import Login from './Pages/login/Login';
 import Signup from './Pages/signup/Signup';
-
+import { auth } from './Firebase/Firebase';
+import { loginUser, setLoading } from './features/userSlice';
 
 
 function Layout() {
@@ -30,6 +32,19 @@ const App = () => {
 
     useEffect(() => {
         dispatch(setTheme(colorMode))
+        auth.onAuthStateChanged(authUser => {
+            if(authUser){
+                dispatch(loginUser({
+                    uid: authUser.uid,
+                    username: authUser.displayName,
+                    email: authUser.email
+                })
+                );
+                dispatch(setLoading(false));
+            }else{
+                console.log("user is not logged in");
+            }
+        })
     });
 
     const handleThemeToggle = () => {
