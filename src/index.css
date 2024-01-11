@@ -2,42 +2,71 @@
 @tailwind components;
 @tailwind utilities;
 
-.btn {
-    background: rgb(107,97,171);
-    background: linear-gradient(90deg, rgba(107,97,171,1) 0%, rgba(81,62,197,1) 56%);
+@font-face {
+    font-family: op;
+    src: url(/public/font/GoldleafBoldPersonalUseBold-eZ4dO.ttf);
 }
-
-.btnn {
-    background: rgb(73,99,190);
-    background: linear-gradient(0deg, rgba(73,99,190,1) 42%, rgba(121,146,234,1) 100%);
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
 }
-
-::-webkit-scrollbar {
-    width: 0px;
+html , body{
+    height: 100%;
+    width: 100%;
 }
-/* Track */
-::-webkit-scrollbar-track {
-    background: #f1f1f1;
+.but{
+    border-radius: 17.5px;
+background: linear-gradient(264deg, #503DC5 18.95%, rgba(61, 48, 144, 0.76) 80.45%);
 }
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-    background: #d2d2d2;
-    border-radius: 5px;
+.but1{
+    background:  linear-gradient(180deg, #829BF2 0%, #4963BE 100%);
 }
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: #807f7f;
+.rr{
+    margin-right: 2%;
+}
+.sd{
+    box-shadow: 0 0  15px 0px #5feeee;
+}
+.box{
+    background: #EBF2FF;
+}
+.title{
+    font-family: op;
 }
 .dark {
     @apply bg-slate-900 text-white;
 }
-
+.dark2{
+    @apply bg-slate-700 text-white;
+}
+.dark3{
+    @apply bg-slate-900 text-white border-b-white border-l-white;
+}
 .active-link {
     @apply bg-blue-600 text-white rounded-lg;
 }
 
 .accent-bg {
     @apply bg-[#EBF2FF];
+}
+*::-webkit-scrollbar {
+    width: 0px;
+}
+
+/* Track */
+*::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+*::-webkit-scrollbar-thumb {
+    background: #d2d2d2;
+    border-radius: 5px;
+}
+
+/* Handle on hover */
+*::-webkit-scrollbar-thumb:hover {
+    background: #807f7f;
 }

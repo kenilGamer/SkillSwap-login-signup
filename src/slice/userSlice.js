@@ -215,21 +215,21 @@ export const UserSlice = createSlice({
       }
     },
   },
-//   updateUserInfo: (state, action) => {
-//     state.user.info = { ...state.user.info, ...action.payload };
-//   },
-//   updateUserSkills: (state, action) => {
-//     let matchFound = false;
-//     state.user.skills.forEach((e, i) => {
-//       e.name == action.payload.name &&
-//         ((state.user.skills[i] = {
-//           ...state.user.skills[i],
-//           ...action.payload,
-//         }),
-//         (matchFound = true));
-//     });
-//     !matchFound && state.user.skills.push(action.payload);
-//   },
+  updateUserInfo: (state, action) => {
+    state.user.info = { ...state.user.info, ...action.payload };
+  },
+  updateUserSkills: (state, action) => {
+    let matchFound = false;
+    state.user.skills.forEach((e, i) => {
+      e.name == action.payload.name &&
+        ((state.user.skills[i] = {
+          ...state.user.skills[i],
+          ...action.payload,
+        }),
+        (matchFound = true));
+    });
+    !matchFound && state.user.skills.push(action.payload);
+  },
 });
 
 export const { toggleTheme, setTheme, updateUserSkills, updateUserInfo } =
