@@ -4,6 +4,7 @@ import { Button, Input } from "@chakra-ui/react"
 import { Link } from "react-router-dom"
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../Firebase/Firebase";
+import { useState } from "react"; 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

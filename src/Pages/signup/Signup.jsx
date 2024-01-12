@@ -1,9 +1,10 @@
 /* eslint-disable no-unused-vars */
 import { Button, Input } from "@chakra-ui/react"
-import { useState } from "react"
+// import { useState } from "react"
 import { Link } from "react-router-dom"
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile} from "firebase/auth"
 import { auth } from "../../Firebase/Firebase"
+import { useState } from "react"
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
