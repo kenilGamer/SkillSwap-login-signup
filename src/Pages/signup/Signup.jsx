@@ -1,11 +1,13 @@
 /* eslint-disable no-unused-vars */
 import { Button, Input } from "@chakra-ui/react"
 // import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, Navigate, useNavigate} from "react-router-dom"
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile} from "firebase/auth"
 import { auth } from "../../Firebase/Firebase"
 import { useState } from "react"
+
 const Signup = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -13,7 +15,7 @@ const Signup = () => {
     createUserWithEmailAndPassword(auth, email, password).then(
       signInWithEmailAndPassword(auth, email, password).then(
         updateProfile(auth.currentUser, {displayName: username})
-        )
+        ).then(navigate("/"))
       ).catch(function (error) {
         alert(error)
       })

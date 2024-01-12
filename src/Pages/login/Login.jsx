@@ -1,15 +1,21 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 import { Button, Input } from "@chakra-ui/react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../Firebase/Firebase";
 import { useState } from "react"; 
 const Login = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const handleLogin = () =>{
-    signInWithEmailAndPassword(auth, email, password)
+    try{
+      signInWithEmailAndPassword(auth, email, password).then(navigate('/'))
+    }catch(error){
+      console.log(error);
+    }
+  
   } 
     return (
     <div className="h-screen accent-bg flex">
